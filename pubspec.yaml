@@ -8,6 +8,9 @@ environment:
 
 dependencies:
   dart_jsonwebtoken: ^2.12.1
+  firebase: ^9.0.3
+  firebase_core: ^2.23.0
+  firebase_dynamic_links: ^5.4.5
   flutter:
     sdk: flutter
   jwt_decoder: ^2.0.1
