@@ -3,7 +3,6 @@ import 'package:mockito/mockito.dart';
 import 'package:todo_app/app/app.locator.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:todo_app/services/c_r_u_d_notes_service.dart';
-import 'package:todo_app/services/login_service_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -13,7 +12,6 @@ import 'test_helpers.mocks.dart';
   MockSpec<BottomSheetService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<DialogService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<CRUDNotesService>(onMissingStub: OnMissingStub.returnDefault),
-  MockSpec<LoginServiceService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -21,7 +19,6 @@ void registerServices() {
   getAndRegisterBottomSheetService();
   getAndRegisterDialogService();
   getAndRegisterCRUDNotesService();
-  getAndRegisterLoginServiceService();
 // @stacked-mock-register
 }
 
@@ -79,13 +76,6 @@ MockCRUDNotesService getAndRegisterCRUDNotesService() {
   _removeRegistrationIfExists<CRUDNotesService>();
   final service = MockCRUDNotesService();
   locator.registerSingleton<CRUDNotesService>(service);
-  return service;
-}
-
-MockLoginServiceService getAndRegisterLoginServiceService() {
-  _removeRegistrationIfExists<LoginServiceService>();
-  final service = MockLoginServiceService();
-  locator.registerSingleton<LoginServiceService>(service);
   return service;
 }
 // @stacked-mock-create

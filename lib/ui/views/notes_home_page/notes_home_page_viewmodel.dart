@@ -12,16 +12,15 @@ class NotesHomePageViewModel extends FormViewModel {
     newNoteValue = '';
     rebuildUi();
   }
-
-  deleteNote(String id) {
+  deleteNote(String id ){
     _crudNotesService.delete(id);
     rebuildUi();
   }
-
-  updateNote(String id) {
-    _crudNotesService.update(id, newNoteValue!);
+  updateNote(String id){
+    _crudNotesService.update(id,  newNoteValue!);
     rebuildUi();
   }
+
 
   Stream get todoStream => _crudNotesService.todoStream;
 }
