@@ -12,6 +12,9 @@ import 'package:stacked_services/src/navigation/navigation_service.dart';
 import 'package:stacked_shared/stacked_shared.dart';
 
 import '../services/c_r_u_d_notes_service.dart';
+import '../services/firebase_deep_link_service.dart';
+import '../services/login_service.dart';
+import '../services/subscription_service.dart';
 
 final locator = StackedLocator.instance;
 
@@ -28,4 +31,7 @@ Future<void> setupLocator({
   locator.registerLazySingleton(() => DialogService());
   locator.registerLazySingleton(() => NavigationService());
   locator.registerLazySingleton(() => CRUDNotesService());
+  locator.registerLazySingleton(() => LoginService());
+  locator.registerLazySingleton(() => SubscriptionService());
+  locator.registerLazySingleton(() => FirebaseDeepLinkService());
 }

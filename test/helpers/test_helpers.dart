@@ -3,6 +3,9 @@ import 'package:mockito/mockito.dart';
 import 'package:todo_app/app/app.locator.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:todo_app/services/c_r_u_d_notes_service.dart';
+import 'package:todo_app/services/login_service.dart';
+import 'package:todo_app/services/subscription_service.dart';
+import 'package:todo_app/services/firebase_deep_link_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -12,6 +15,9 @@ import 'test_helpers.mocks.dart';
   MockSpec<BottomSheetService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<DialogService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<CRUDNotesService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<LoginService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<SubscriptionService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<FirebaseDeepLinkService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -19,6 +25,9 @@ void registerServices() {
   getAndRegisterBottomSheetService();
   getAndRegisterDialogService();
   getAndRegisterCRUDNotesService();
+  getAndRegisterLoginService();
+  getAndRegisterSubscriptionService();
+  getAndRegisterFirebaseDeepLinkService();
 // @stacked-mock-register
 }
 
@@ -76,6 +85,27 @@ MockCRUDNotesService getAndRegisterCRUDNotesService() {
   _removeRegistrationIfExists<CRUDNotesService>();
   final service = MockCRUDNotesService();
   locator.registerSingleton<CRUDNotesService>(service);
+  return service;
+}
+
+MockLoginService getAndRegisterLoginService() {
+  _removeRegistrationIfExists<LoginService>();
+  final service = MockLoginService();
+  locator.registerSingleton<LoginService>(service);
+  return service;
+}
+
+MockSubscriptionService getAndRegisterSubscriptionService() {
+  _removeRegistrationIfExists<SubscriptionService>();
+  final service = MockSubscriptionService();
+  locator.registerSingleton<SubscriptionService>(service);
+  return service;
+}
+
+MockFirebaseDeepLinkService getAndRegisterFirebaseDeepLinkService() {
+  _removeRegistrationIfExists<FirebaseDeepLinkService>();
+  final service = MockFirebaseDeepLinkService();
+  locator.registerSingleton<FirebaseDeepLinkService>(service);
   return service;
 }
 // @stacked-mock-create

@@ -8,9 +8,11 @@ import 'package:stacked_services/stacked_services.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
   await Supabase.initialize(
     url: 'https://ksevvmzpcxgqxfggwnja.supabase.co',
-    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtzZXZ2bXpwY3hncXhmZ2d3bmphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDA1NDA2MzQsImV4cCI6MjAxNjExNjYzNH0.ExrNZ73GROcOHNlOrMCPAvv21Bmjyrl7MWipmsRZ_CQ',
+    anonKey:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtzZXZ2bXpwY3hncXhmZ2d3bmphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDA1NDA2MzQsImV4cCI6MjAxNjExNjYzNH0.ExrNZ73GROcOHNlOrMCPAvv21Bmjyrl7MWipmsRZ_CQ',
   );
   await setupLocator();
   setupDialogUi();
@@ -24,7 +26,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: Routes.notesHomePageView,
+      initialRoute: Routes.startupView,
       onGenerateRoute: StackedRouter().onGenerateRoute,
       navigatorKey: StackedService.navigatorKey,
       navigatorObservers: [

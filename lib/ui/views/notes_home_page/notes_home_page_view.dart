@@ -42,32 +42,37 @@ class NotesHomePageView extends StackedView<NotesHomePageViewModel>
                                 onTap: () {
                                   print(snapshot.data[index]['id']);
                                   viewModel.deleteNote(
-                                    snapshot.data[index]['id'].toString());
+                                      snapshot.data[index]['id'].toString());
                                 },
                                 child: Icon(Icons.delete)),
                             title: Row(
                               children: [
-                                Expanded(child: Text("${snapshot.data[index]['text']}")),
+                                Expanded(
+                                    child: Text(
+                                        "${snapshot.data[index]['text']}")),
                                 GestureDetector(
                                     onTap: () {
-                                      showDialog(context: context, builder: (BuildContext context) {
-                                        return new AlertDialog(
-                                          title: new Text("Edit the note"),
-                                          content: new TextFormField(
-                                            initialValue: snapshot.data[index]['text'],
-                                            onChanged: (value) {
-                                              viewModel.newNoteValue = value;
-                                              viewModel.updateNote(
-                                                  snapshot.data[index]['id'].toString());
-                                            },
-                                          ),
-                                        );
-                                      });
-                                      // print(snapshot.data[index]['id']);
-                                      // viewModel.updateNote(
-                                      //   snapshot.data[index]['id'].toString());
+                                      showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return new AlertDialog(
+                                              title: new Text("Edit the note"),
+                                              content: new TextFormField(
+                                                initialValue: snapshot
+                                                    .data[index]['text'],
+                                                onChanged: (value) {
+                                                  viewModel.newNoteValue =
+                                                      value;
+                                                  viewModel.updateNote(snapshot
+                                                      .data[index]['id']
+                                                      .toString());
+                                                },
+                                              ),
+                                            );
+                                          });
                                     },
-                                    child: Icon(Icons.update, color: Colors.blue, size: 20.0)),
+                                    child: Icon(Icons.update,
+                                        color: Colors.blue, size: 20.0)),
                               ],
                             ));
                       });
@@ -80,9 +85,8 @@ class NotesHomePageView extends StackedView<NotesHomePageViewModel>
           Row(
             children: [
               SizedBox(
-                width: 250.0,
+                width: 230.0,
                 child: TextFormField(
-
                   decoration: const InputDecoration(
                     hintText: 'Enter note',
                   ),
@@ -96,6 +100,10 @@ class NotesHomePageView extends StackedView<NotesHomePageViewModel>
                 },
                 child: const Text('Create'),
               ),
+              const SizedBox(width: 10.0),
+              GestureDetector(
+                onTap: () => viewModel.logout(),
+                child: Icon(Icons.logout, color: Colors.red, size: 30.0)),
             ],
           )
         ]),
